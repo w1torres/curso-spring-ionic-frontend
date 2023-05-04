@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { MenuController } from 'ionic-angular/components/app/menu-controller';
 import { CredenciaisDTO } from '../../models/credenciais.dto';
-import { AuthService} from '../../services/domain/auth.services';
+import { AuthService} from '../../services/auth.services';
 
 @IonicPage()
 @Component({
