@@ -16,12 +16,12 @@ export class ProdutosPage {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public produtoSevice: ProdutoService) {
+    public produtoService: ProdutoService) {
   }
 
   ionViewDidLoad() {
     let categoria_id = this.navParams.get('categoria_id');
-    this.produtoSevice.findByCategoria(categoria_id)
+    this.produtoService.findByCategoria(categoria_id)
       .subscribe(response => {
         this.items = response['content'];
         this.loadImageUrls();
@@ -32,7 +32,7 @@ export class ProdutosPage {
   loadImageUrls(){
     for(var i=0; i<this.items.length; i++ ){
         let item = this.items[i];
-        this.produtoSevice.getSmallImageFromBucket(item.id)
+        this.produtoService.getSmallImageFromBucket(item.id)
            .subscribe(response => {
             item.imageUrl = `${API_CONFIG.bucketBaseUrl}/prod${item.id}-small.jpg`;
            },
