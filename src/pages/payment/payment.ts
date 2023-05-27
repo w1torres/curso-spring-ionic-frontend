@@ -29,8 +29,8 @@ export class PaymentPage {
     });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PaymentPage');
+  nextPage(){
+    this.pedido.pagamento = this.formGroup.value;
+    this.navCtrl.setRoot('OrderConfirmationPage', {pedido: this.pedido});
   }
-
 }
